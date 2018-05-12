@@ -1,0 +1,16 @@
+from textblob import TextBlob
+text=open("Tristan.txt")
+text=text.read()
+text=text[2000:3000]
+blob=TextBlob(text)
+
+dictionary=blob.np_counts
+dictionary=dict(dictionary)
+print(type(dictionary))
+
+rankedList=sorted(dictionary,key=dictionary.get,reverse=True)
+for i in range(0, len(rankedList)):
+    key=rankedList[i]
+    value=dictionary[key]
+    print(key+"repeats"+str(value)+"times")
+    
